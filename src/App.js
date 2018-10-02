@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+
+
 import 'bootstrap/dist/css/bootstrap.css';
-import {Container, Containerfluid, Row, Col } from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import './App.css';
 import Navbar from './navbar';
 
@@ -22,51 +23,39 @@ class App extends Component {
                 description: 'A 128 gb IPhone in Black with Awesome new features',
                 image: 'Link here',
                 price: '$749.99'
+            },
+            {
+                name: 'Iphone 7 Plus',
+                subTitle: '32gb Silver',
+                description: 'A 32 gb IPhone in Black with Awesome new features',
+                image: 'Link here',
+                price: '$549.99'
             }
         ]
-    }
-  render() {
-    return (
+    };
 
-        <Container>
-            <Navbar/>
-            <Row>
-                <Col>
-                <h1>Orange E-commerce</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col sm>
-                    <div>
-                        <h3>Product Name</h3>
-                        <logo />
-                        <p>Sub title</p>
-                        <p>Description</p>
-                        <p>Price</p>
-                    </div>
-                </Col>
-                <Col sm>
-                    <div>
-                        <h3>Product Name</h3>
-                        <logo />
-                        <p>Sub title</p>
-                        <p>Description</p>
-                        <p>Price</p>
-                    </div>
-                </Col>
-                <Col sm>
-                    <div>
-                        <h3>Product Name</h3>
-                        <logo />
-                        <p>Sub title</p>
-                        <p>Description</p>
-                        <p>Price</p>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Navbar/>
+                <Container>
+                    <Row>
+
+                            {this.state.products.map((product, index) => (
+                                <Col>
+                                    <p>{product.name}</p>
+                                    <p>{product.subTitle}</p>
+                                    <p>{product.description}</p>
+                                    <p>{product.price}</p>
+                                </Col>
+                            ))}
+
+                    </Row>
+                </Container>
+            </div>
+
+        );
+    }
 }
 
 export default App;

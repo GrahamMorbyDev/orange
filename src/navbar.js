@@ -10,7 +10,9 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    DropdownItem, Container
+} from 'reactstrap';
+import PropTypes from "prop-types";
 
 export default class Example extends React.Component {
     constructor(props) {
@@ -20,6 +22,10 @@ export default class Example extends React.Component {
         this.state = {
             isOpen: false
         };
+        Container.propTypes = {
+            fluid:  PropTypes.bool
+            // applies .container-fluid class
+        }
     }
     toggle() {
         this.setState({
@@ -28,7 +34,8 @@ export default class Example extends React.Component {
     }
     render() {
         return (
-            <div>
+            <Container fluid={true}>
+                <div>
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">Orange E-Commerce</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
@@ -61,6 +68,7 @@ export default class Example extends React.Component {
                     </Collapse>
                 </Navbar>
             </div>
+            </Container>
         );
     }
 }
